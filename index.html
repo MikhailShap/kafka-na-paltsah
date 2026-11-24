@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kafka на пальцах</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23f0b46a' d='M16 3 29 9v14L16 29 3 23V9z'/%3E%3Cpath fill='%23b9793a' d='M16 15v14L3 23V9z'/%3E%3Cpath fill='%23d9a15c' d='M16 15v14l13-6V9z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="panel" aria-label="Учебная панель">
+      <header id="brand">
+        <button id="home" class="logo" title="К первой ступени"><b>Kafka</b> на пальцах</button>
+        <nav class="modes">
+          <button id="goSandbox">Песочница</button>
+          <button id="goSheet">Шпаргалка</button>
+        </nav>
+      </header>
+      <nav id="track" aria-label="Ступени"></nav>
+      <div id="page" tabindex="-1"></div>
+    </aside>
+
+    <main id="stage">
+      <canvas id="gl" aria-label="Интерактивная объёмная схема Kafka"></canvas>
+      <canvas id="c2d" aria-label="Интерактивная плоская схема Kafka" hidden></canvas>
+      <div id="labels" aria-hidden="true"></div>
+      <div id="top">
+        <div id="hud"></div>
+        <div id="charts" hidden></div>
+        <div id="term" hidden></div>
+      </div>
+      <div id="bar">
+      <div id="viewctl" role="group" aria-label="Вид схемы">
+        <button data-view="3d" title="Объёмная схема, её можно крутить">3D</button>
+        <button data-view="2d" title="Плоская схема, вид спереди">2D</button>
+      </div>
+      <div id="timectl" role="group" aria-label="Время и камера">
+        <button id="btnPause" title="Пауза">Пауза</button>
+        <button data-speed="0.5" title="Медленнее">×0,5</button>
+        <button data-speed="1" class="on" title="Обычная скорость">×1</button>
+        <button data-speed="2" title="Быстрее">×2</button>
+        <button id="btnCam" title="Вернуть камеру на место">Камера</button>
+        <button id="btnRestart" title="Начать ступень заново">Заново</button>
+      </div>
+      </div>
+      <div id="feed" aria-live="polite"></div>
+      <div id="dock"></div>
+      <div id="tip" role="tooltip" hidden></div>
+    </main>
+  </div>
+
+  <dialog id="sheet" aria-label="Шпаргалка"></dialog>
+
+  <script src="js/sim.js"></script>
+  <script src="js/gl.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/scene2d.js"></script>
+  <script src="js/lessons.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
